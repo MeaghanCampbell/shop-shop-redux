@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { useEffect } from 'react'
 import { QUERY_CATEGORIES } from "../../utils/queries";
 // import global state
-import { useStoreContext } from "../../utils/GlobalState"
+import { useDispatch, useSelector } from 'react-redux'
 import { UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY } from "../../utils/actions";
 import { idbPromise } from '../../utils/helpers';
 
@@ -11,7 +11,8 @@ import { idbPromise } from '../../utils/helpers';
 function CategoryMenu() {
 
   // when we use this component we call useStoreContext hook to get current state from global object, and use dispatch to update it
-  const [state, dispatch] = useStoreContext()
+  const state = useSelector(state => state);
+  const dispatch = useDispatch();
 
   // only need categories array out of our global state so destructure out of state 
   const { categories } = state

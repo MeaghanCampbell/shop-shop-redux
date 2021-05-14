@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useQuery } from '@apollo/react-hooks';
 
 import ProductItem from "../ProductItem";
-import { useStoreContext } from "../../utils/GlobalState";
+import { useDispatch, useSelector } from 'react-redux';
 import { UPDATE_PRODUCTS } from "../../utils/actions";
 import { QUERY_PRODUCTS } from "../../utils/queries";
 import spinner from "../../assets/spinner.gif"
@@ -11,8 +11,8 @@ import { idbPromise } from "../../utils/helpers"
 
 function ProductList() {
   // immediately execute useStoreContext to get current global state, and dispatch to update state
-  const [state, dispatch] = useStoreContext();
-
+  const state = useSelector(state => state);
+	const dispatch = useDispatch();
   // destructure current category out to state
   const { currentCategory } = state;
 

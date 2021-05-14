@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import CartItem from '../CartItem';
 import Auth from '../../utils/auth';
 import './style.css';
-import { useStoreContext } from '../../utils/GlobalState';
+import { useDispatch, useSelector } from 'react-redux'
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 import { QUERY_CHECKOUT } from '../../utils/queries';
@@ -14,7 +14,8 @@ const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 const Cart = () => {
 
     // custom useStoreContext from global state hook to establish state variable and dispatch function to update it
-    const [state, dispatch] = useStoreContext();
+    const state = useSelector(state => state)
+    const dispatch = useDispatch()
 
     // data contains the checkout session, but only runs after query is called with getCheckout function
     const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT)
