@@ -17,7 +17,7 @@ This app was created by Meaghan Campbell
 
 # Link
 Repo: (Github)[https://github.com/MeaghanCampbell/shop-shop-redux]
-App: (Heroku)[#]
+App: (Heroku)[https://shop-shoppe-redux.herokuapp.com/]
 
 
 # Technology
